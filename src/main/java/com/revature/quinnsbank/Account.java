@@ -3,15 +3,14 @@ package com.revature.quinnsbank;
 import java.util.Random;
 
 public class Account {
-	private Random r;
-	private int accountNumber;
+	private Random r = new Random();
+	private final int accountNumber = Math.abs(r.nextInt());
 	private double balance;
 	private boolean approved = false;
 	
 	public Account() {
 		super();
 		r = new Random();
-		accountNumber = Math.abs(r.nextInt());
 		r = null;
 		balance = 0;
 		approved = false;

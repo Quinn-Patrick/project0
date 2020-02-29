@@ -11,6 +11,9 @@ public class User {
 	private int age;
 	
 	private List<Account> linkedAccounts = new ArrayList<>();
+	private List<Integer> accountNumbers = new ArrayList<>();
+	
+	public FileAccessor file = FileAccessor.getFileAccessor();
 	
 	public User() {
 		this.username = "None";
@@ -18,6 +21,8 @@ public class User {
 		this.fName = "John";
 		this.lName = "Doe";
 		this.age = 16;
+		
+		
 	}
 	
 	public User(String username, String password, String fName, String lName, int age) {
@@ -70,7 +75,9 @@ public class User {
 	}
 	
 	public void createAccount() {
-		linkedAccounts.add(new Account());
+		Account newAccount = new Account();
+		linkedAccounts.add(newAccount);
+		accountNumbers.add(newAccount.getAccountNumber());
 	}
 	
 	public Account getAccount(int index) {
@@ -79,6 +86,15 @@ public class User {
 		}else {
 			System.out.println("List index out of bounds.");
 			return null;
+		}
+	}
+	
+	public int getAccountNumbers(int index) {
+		if(index < accountNumbers.size()) {
+			return(accountNumbers.get(index));
+		}else {
+			System.out.println("List index out of bounds.");
+			return 0;
 		}
 	}
 	

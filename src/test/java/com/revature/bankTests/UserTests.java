@@ -10,7 +10,7 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
-public class userTests {
+public class UserTests {
 	
 	private User u = null;
 
@@ -140,6 +140,9 @@ public class userTests {
 		Account a = u.getAccount(0);
 		Account a1 = u.getAccount(1);
 		
+		assertEquals(u.getAccountNumbers(0), u.getAccount(0).getAccountNumber());
+		
+		u.getAccountNumbers(1);
 	}
 	
 	/*
