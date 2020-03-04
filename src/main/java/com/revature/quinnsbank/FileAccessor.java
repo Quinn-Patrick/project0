@@ -75,7 +75,7 @@ public class FileAccessor implements DataAccessible{
 				return a;
 			}
 		}
-		System.out.println("Account number " + accountNumber + " not found.");
+		//System.out.println("Account number " + accountNumber + " not found.");
 		return null;
 	}
 
@@ -146,7 +146,7 @@ public class FileAccessor implements DataAccessible{
 			System.out.println("Deleted user " + username + ".");
 			userList.remove(u);
 		}
-		else System.out.println("User " + username + " not found.");
+		//else System.out.println("User " + username + " not found.");
 		recordUsers();
 		
 	}
@@ -162,9 +162,9 @@ public class FileAccessor implements DataAccessible{
 		}
 		if(a != null) {
 			System.out.println("Deleted account number " + accountNumber + ".");
-			userList.remove(a);
+			accountList.remove(a);
 		}
-		else System.out.println("Account number " + accountNumber + " not found.");
+		//else System.out.println("Account number " + accountNumber + " not found.");
 		recordAccounts();
 		
 	}

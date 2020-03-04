@@ -1,8 +1,13 @@
 package com.revature.quinnsbank;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Account {
+public class Account implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3010928263862704730L;
 	private Random r = new Random();
 	private final int accountNumber = Math.abs(r.nextInt());
 	private double balance;
@@ -39,6 +44,7 @@ public class Account {
 		}
 		else System.out.println("Please wait for a bank admin to approve your account"
 				+ " before making deposits.");
+		Driver.data.storeAccount(this);
 	}
 	
 	public void withdraw(double amount) {
@@ -51,6 +57,7 @@ public class Account {
 		}
 		else System.out.println("Please wait for a bank admin to approve your account"
 				+ " before making withrawals.");
+		Driver.data.storeAccount(this);
 	}
 
 	public boolean isApproved() {
@@ -59,6 +66,7 @@ public class Account {
 
 	public void approve() {
 		this.approved = true;
+		Driver.data.storeAccount(this);
 	}
 
 	@Override
@@ -90,14 +98,7 @@ public class Account {
 			return false;
 		if (Double.doubleToLongBits(balance) != Double.doubleToLongBits(other.balance))
 			return false;
+		if(this.accountNumber != ((Account) obj).getAccountNumber()) return false;
 		return true;
 	}
-
-	
-	
-	
-	
-	
-	
-	
 }

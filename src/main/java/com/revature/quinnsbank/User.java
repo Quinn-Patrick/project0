@@ -1,9 +1,14 @@
 package com.revature.quinnsbank;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User {
+public class User implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -893962672273996943L;
 	private String username;
 	private String password;
 	private String fName;
@@ -13,7 +18,6 @@ public class User {
 	private List<Account> linkedAccounts = new ArrayList<>();
 	private List<Integer> accountNumbers = new ArrayList<>();
 	
-	public FileAccessor file = FileAccessor.getFileAccessor();
 	
 	public User() {
 		this.username = "None";
@@ -38,6 +42,7 @@ public class User {
 	}
 	public void setUsername(String username) {
 		this.username = username;
+		Driver.data.storeUser(this);
 	}
 	public String getPassword() {
 		return password;
@@ -47,18 +52,21 @@ public class User {
 			System.out.println("Your new password cannot be the same as your old one.");
 		}
 		this.password = password;
+		Driver.data.storeUser(this);
 	}
 	public String getfName() {
 		return fName;
 	}
 	public void setfName(String fName) {
 		this.fName = fName;
+		Driver.data.storeUser(this);
 	}
 	public String getlName() {
 		return lName;
 	}
 	public void setlName(String lName) {
 		this.lName = lName;
+		Driver.data.storeUser(this);
 	}
 	public int getAge() {
 		return age;
@@ -72,12 +80,16 @@ public class User {
 			return;
 		}
 		this.age = age;
+		Driver.data.storeUser(this);
 	}
 	
 	public void createAccount() {
 		Account newAccount = new Account();
 		linkedAccounts.add(newAccount);
 		accountNumbers.add(newAccount.getAccountNumber());
+		Driver.data.storeUser(this);
+		Driver.data.storeAccount(newAccount);
+		System.out.println("Your new account number is " + newAccount.getAccountNumber() + ".");
 	}
 	
 	public Account getAccount(int index) {
@@ -98,9 +110,17 @@ public class User {
 		}
 	}
 	
+	public List<Integer> getAccountNumbers(){
+		return accountNumbers;
+	}
+	
 	public boolean comparePassword(String attempt) {
 		if(attempt.equals(password))return true;
 		else return false;
+	}
+	
+	public boolean hasAccount() {
+		return(this.linkedAccounts.size() > 0);
 	}
 
 	@Override
