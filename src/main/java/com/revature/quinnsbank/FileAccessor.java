@@ -19,7 +19,7 @@ public class FileAccessor implements DataAccessible{
 	private Set<Account> accountList = new HashSet<>();
 	private static FileAccessor instance = null;
 	
-	private FileAccessor() {
+	public FileAccessor() {
 		super();
 		loadUsers();
 		loadAccounts();

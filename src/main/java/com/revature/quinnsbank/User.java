@@ -41,55 +41,42 @@ public class User implements Serializable{
 		return username;
 	}
 	public void setUsername(String username) {
-		this.username = username;
-		Driver.data.storeUser(this);
+		UserServices.setUsername(this, username);
 	}
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
-		if(this.password.equals(password)) {
-			System.out.println("Your new password cannot be the same as your old one.");
-		}
-		this.password = password;
-		Driver.data.storeUser(this);
+		UserServices.setPassword(this, password);
 	}
 	public String getfName() {
 		return fName;
 	}
 	public void setfName(String fName) {
 		this.fName = fName;
-		Driver.data.storeUser(this);
+		UserServices.storeUser(this);
 	}
 	public String getlName() {
 		return lName;
 	}
 	public void setlName(String lName) {
 		this.lName = lName;
-		Driver.data.storeUser(this);
+		UserServices.storeUser(this);
 	}
 	public int getAge() {
 		return age;
 	}
+	public void updateAge(int age) {
+		UserServices.setAge(this, age);
+	}
+	
 	public void setAge(int age) {
-		if(age < 0) {
-			System.out.println("Invalid age input.");
-			return;
-		}else if(age < 16) {
-			System.out.println("You must be sixteen or older to use this bank.");
-			return;
-		}
 		this.age = age;
-		Driver.data.storeUser(this);
+		
 	}
 	
 	public void createAccount() {
-		Account newAccount = new Account();
-		linkedAccounts.add(newAccount);
-		accountNumbers.add(newAccount.getAccountNumber());
-		Driver.data.storeUser(this);
-		Driver.data.storeAccount(newAccount);
-		System.out.println("Your new account number is " + newAccount.getAccountNumber() + ".");
+		UserServices.createAccount(this);
 	}
 	
 	public Account getAccount(int index) {
@@ -121,6 +108,11 @@ public class User implements Serializable{
 	
 	public boolean hasAccount() {
 		return(this.linkedAccounts.size() > 0);
+	}
+	
+	public void linkAccount(Account account) {
+		linkedAccounts.add(account);
+		accountNumbers.add(account.getAccountNumber());
 	}
 
 	@Override

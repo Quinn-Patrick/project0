@@ -27,6 +27,10 @@ public class Account implements Serializable{
 		this.approved = false;
 	}
 
+	public void setBalance(double newBalance) {
+		this.balance = newBalance;
+	}
+	
 	public double getBalance() {
 		return balance;
 	}
@@ -36,28 +40,11 @@ public class Account implements Serializable{
 	}
 
 	public void deposit(double amount) {
-		if(approved) {
-			if(amount >= 0) {
-				this.balance += amount;
-			}
-			else System.out.println("Please only enter positive dollar amounts.");
-		}
-		else System.out.println("Please wait for a bank admin to approve your account"
-				+ " before making deposits.");
-		Driver.data.storeAccount(this);
+		AccountServices.deposit(this, amount);
 	}
 	
 	public void withdraw(double amount) {
-		if(approved) {
-			if(amount >= 0 && this.balance - amount > 0) {
-				this.balance -= amount;
-			}
-			else if(amount < 0) System.out.println("Please only enter positive dollar amounts.");
-			else System.out.println("Withrawal denied: Account overdrawn.");
-		}
-		else System.out.println("Please wait for a bank admin to approve your account"
-				+ " before making withrawals.");
-		Driver.data.storeAccount(this);
+		AccountServices.withdraw(this, amount);
 	}
 
 	public boolean isApproved() {
@@ -66,7 +53,7 @@ public class Account implements Serializable{
 
 	public void approve() {
 		this.approved = true;
-		Driver.data.storeAccount(this);
+		AccountServices.record(this);
 	}
 
 	@Override

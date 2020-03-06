@@ -10,24 +10,29 @@ public abstract class Menu {
 	private static User currentUser = null;
 	private static Account currentAccount = null;
 	public DataAccessible data = FileAccessor.getFileAccessor();
-	private static List<String> reserved = Arrays.asList("New", "new", "-1", "Quit");
+	private static List<String> reserved = Arrays.asList("New", "new", "-1", "Quit", "quit");
 	
 	public static User chooseUser(User user) {
 		if(user instanceof Employee || user instanceof Admin) {
-			System.out.println("Please enter a user name. Enter -1 to go back.");
-			
-			String userSelect = "-2";
-			
-			do {
-				if(userSelect.equals("-1")) return null;
-				
-				userSelect = scan.nextLine();
-				
-			}while(Driver.data.retrieveUser(userSelect) == null);
-			
-			return Driver.data.retrieveUser(userSelect);
+			return typeUser();
 		}
 		else return user;
+	}
+	
+	public static User typeUser() {
+		System.out.println("Please enter a user name. Enter -1 to go back.");
+		
+		String userSelect = "-2";
+		
+		do {
+			if(userSelect.equals("-1")) return null;
+			
+			userSelect = scan.nextLine();
+			
+		}while(UserServices.retrieveUser(userSelect) == null);
+		
+		return UserServices.retrieveUser(userSelect);
+		
 	}
 	
 	public static Account chooseAccount(User user) {
@@ -44,14 +49,14 @@ public abstract class Menu {
 				}catch(NumberFormatException e) {
 					accountSelect = -2;
 				}
-			}while(Driver.data.retrieveAccount(accountSelect) == null);
+			}while(AccountServices.retrieveAccount(accountSelect) == null);
 			
-			return Driver.data.retrieveAccount(accountSelect);
+			return AccountServices.retrieveAccount(accountSelect);
 		}
 		else {
 			List<String> options = new ArrayList<>();
 			for(Integer i : user.getAccountNumbers()) {
-				if(Driver.data.retrieveAccount(i) != null)options.add(i.toString());
+				if(AccountServices.retrieveAccount(i) != null)options.add(i.toString());
 			}
 			options.add("Back");
 			
@@ -59,7 +64,7 @@ public abstract class Menu {
 			
 			if(selection.equals("Back")) return null;
 			
-			Account accountSelection = Driver.data.retrieveAccount(Integer.parseInt(selection));
+			Account accountSelection = AccountServices.retrieveAccount(Integer.parseInt(selection));
 			
 			return accountSelection;
 		}
@@ -130,7 +135,7 @@ public abstract class Menu {
 	
 	public static void loginScreen() {
 		do {
-			if(Driver.data.retrieveAllUsers().isEmpty()) {
+			if(UserServices.retrieveAllUsers().isEmpty()) {
 				createNewUser();
 			}else {
 				System.out.println("Welcome to Quinn's Bank! Please enter your username,"
@@ -142,7 +147,10 @@ public abstract class Menu {
 						createNewUser();
 						break;
 					}
-					currentUser = Driver.data.retrieveUser(loginUsername);
+					else if(loginUsername.equalsIgnoreCase("Quit")) {
+						System.exit(0);
+					}
+					currentUser = UserServices.retrieveUser(loginUsername);
 				}while(currentUser == null);
 			}
 			if(currentUser != null) {
@@ -153,8 +161,13 @@ public abstract class Menu {
 					pass = scan.nextLine();
 					success = currentUser.comparePassword(pass);
 					if(!success) {
-						System.out.println("The username and password do not match. Please try again. -1 to log out.");
+						Driver.logger.info("Unsuccessful login attempt for username " + 
+								currentUser.getUsername() + ".");
+						System.out.println("The username and password do not match. "
+								+ "Please try again. -1 to log out.");
 					}else {
+						Driver.logger.info("User " + currentUser.getUsername() 
+						+ " successful login attempt.");
 						homeMenu();
 					}
 					if(pass.equals("-1")) {
@@ -219,13 +232,13 @@ public abstract class Menu {
 			newUser = new User(newUsername, newPassword, newfName, newlName, newAge);
 		}
 		
-		Driver.data.storeUser(newUser);
+		UserServices.storeUser(newUser);
 		
 		currentUser = newUser;
 	}
 	
 	public static boolean originalUsername(String username) {
-		List<User> users = Driver.data.retrieveAllUsers();
+		List<User> users = UserServices.retrieveAllUsers();
 		for(User u : users) {
 			if(u.getUsername().equals(username)) {
 				System.out.println("The username you entered is already in use.");
@@ -266,6 +279,7 @@ public abstract class Menu {
 				List<String> options = new ArrayList<>();
 				options.add("Open Account");
 				if(currentUser.hasAccount() || currentUser instanceof Employee)options.add("View Account");
+				options.add("Link Existing Account");
 				options.add("View User");
 				options.add("Log Out");
 				
@@ -278,6 +292,9 @@ public abstract class Menu {
 					break;
 				case("View User"):
 					viewUsers();
+					break;
+				case("Link Existing Account"):
+					linkAccount(currentUser);
 					break;
 				case("Log Out"):
 					loggingOut = true;
@@ -302,8 +319,11 @@ public abstract class Menu {
 			case("Deposit"):
 				deposit(checkedAccount);
 				break;
+			case("Transfer Funds"):
+				transferFunds(checkedAccount, user);
+				break;
 			case("Delete"):
-				Driver.data.deleteAccount(checkedAccount.getAccountNumber());
+				AccountServices.deleteAccount(checkedAccount.getAccountNumber());
 				break;
 			case("Approve"):
 				checkedAccount.approve();
@@ -331,12 +351,12 @@ public abstract class Menu {
 					break;
 				case("Delete"):
 					if(currentUser.equals(checkedUser)) {
-						System.out.println("This action will PERMANENTLY delete your user account. Proceed (y/n)?");
+						System.out.println("This action will PERMANENTLY delete your user profile. Proceed (y/n)?");
 						if(!scan.nextLine().equals("y")) {
 							break;
 						}
 					}
-					Driver.data.deleteUser(checkedUser.getUsername());
+					UserServices.deleteUser(checkedUser.getUsername());
 					break;
 				case("View and modify accounts."):
 					viewAccounts(checkedUser);
@@ -375,16 +395,60 @@ public abstract class Menu {
 				System.out.println("Please enter a valid age.");
 			}
 			else if(newAge < 16){
-				System.out.println("You must be sixteen to use this bank.");
+				System.out.println("You must be sixteen or older to use this bank.");
 			}
 		}while(newAge < 16);
 		
-		user.setAge(newAge);
+		user.updateAge(newAge);
 	}
 	
 	public static void updatePassword(User user) {
 		System.out.println("Please enter your new password.");
 		user.setPassword(scan.nextLine());
+	}
+	
+	public static void transferFunds(Account account1, User user) {
+		
+		System.out.println("Which user would you like to transfer funds to?");
+		User targetUser = typeUser();
+		System.out.println("Which of their accounts would you like to transfer funds to?");
+		Account targetAccount = chooseAccount(targetUser);
+		System.out.println("How much money would you like to transfer?");
+		double transferAmount = getDollarAmount();
+		if(transferAmount > account1.getBalance()) {
+			System.out.println("Transfer failed. This transfer would overdraw your account.");
+			return;
+		}
+		account1.withdraw(transferAmount);
+		targetAccount.deposit(transferAmount);
+	}
+	
+	public static void linkAccount(User user) {
+		System.out.println("Link an account belonging to which user?");
+		User targetUser = typeUser();
+		System.out.println("Which of their accounts would you like to link to?");
+		Account targetAccount = chooseAccount(targetUser);
+		System.out.println(targetUser.getUsername() + ", please enter your password.");
+		String pass = null;
+		boolean success = false;
+		do {
+			pass = scan.nextLine();
+			success = targetUser.comparePassword(pass);
+			if(!success) {
+				Driver.logger.info("Unsuccessful password attempt for username " + 
+						targetUser.getUsername() + ".");
+				System.out.println("The username and password do not match. "
+						+ "Please try again. -1 to go back.");
+			}else {
+				Driver.logger.info("User " + currentUser.getUsername() 
+				+ " successful password attempt.");
+				user.linkAccount(targetAccount);
+			}
+			if(pass.equals("-1")) {
+				currentUser = null;
+				return;
+			}
+		}while(!success);
 	}
 	
 	public static void openAccount() {
