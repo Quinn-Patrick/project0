@@ -136,7 +136,7 @@ public class UserTests {
 	
 	@Test
 	public void testAccountLink() {
-		u.createAccount();
+		u.createAccount("Checking");
 		Account a = u.getAccount(0);
 		Account a1 = u.getAccount(1);
 		

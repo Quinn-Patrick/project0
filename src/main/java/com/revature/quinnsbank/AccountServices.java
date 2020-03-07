@@ -1,7 +1,7 @@
 package com.revature.quinnsbank;
 
 public class AccountServices {
-	private static DataAccessible data = new FileAccessor();
+	private static DataAccessible data = new DatabaseAccessor();
 	
 	public static void deposit(Account account, double amount) {
 		Driver.logger.info("Attempted to deposit $" + amount + " into account "

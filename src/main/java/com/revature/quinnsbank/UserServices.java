@@ -3,7 +3,7 @@ package com.revature.quinnsbank;
 import java.util.List;
 
 public class UserServices {
-	private static DataAccessible data = new FileAccessor();
+	private static DataAccessible data = new DatabaseAccessor();
 	
 	public static void setUsername(User user, String username) {
 		Driver.logger.info("User set username to " + username + ".");
@@ -52,13 +52,14 @@ public class UserServices {
 		data.storeUser(user);
 	}
 	
-	public static void createAccount(User user) {
-		Account newAccount = new Account();
+	public static void createAccount(User user, String checkingOrSavings) {
+		Account newAccount = new Account(checkingOrSavings);
 		Driver.logger.info("User " + user.getUsername() + " opened a new account with number "
 				+ newAccount.getAccountNumber());
 		user.linkAccount(newAccount);
-		data.storeUser(user);
+		
 		data.storeAccount(newAccount);
+		data.storeUser(user);
 		System.out.println("Your new account number is " + newAccount.getAccountNumber() + ".");
 	}
 	

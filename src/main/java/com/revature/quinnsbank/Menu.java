@@ -419,8 +419,12 @@ public abstract class Menu {
 			System.out.println("Transfer failed. This transfer would overdraw your account.");
 			return;
 		}
-		account1.withdraw(transferAmount);
-		targetAccount.deposit(transferAmount);
+		if(account1.isApproved() && targetAccount.isApproved()) {
+			account1.withdraw(transferAmount);
+			targetAccount.deposit(transferAmount);
+		}else {
+			System.out.println("One or both of these accounts has not been approved.");
+		}
 	}
 	
 	public static void linkAccount(User user) {
@@ -452,9 +456,25 @@ public abstract class Menu {
 	}
 	
 	public static void openAccount() {
+		List<String> options = new ArrayList<>();
+		options.add("Checking");
+		options.add("Savings");
+		options.add("Back");
+		String checkingOrSavings = numberedMenu(options, "Would you like to open a checking or savings account?");
+		switch(checkingOrSavings) {
+		case("Checking"):
+			currentUser.createAccount("Checking");
+		break;
+		case("Savings"):
+			currentUser.createAccount("Savings");
+		break;
+		default:
+			return;
+
+		}
 		System.out.println("A new account has been opened, pending approval by"
 				+ " a bank administrator.");
 		
-		currentUser.createAccount();
+		
 	}
 }

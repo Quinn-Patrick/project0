@@ -75,8 +75,8 @@ public class User implements Serializable{
 		
 	}
 	
-	public void createAccount() {
-		UserServices.createAccount(this);
+	public void createAccount(String checkingOrSavings) {
+		UserServices.createAccount(this, checkingOrSavings);
 	}
 	
 	public Account getAccount(int index) {
@@ -113,6 +113,7 @@ public class User implements Serializable{
 	public void linkAccount(Account account) {
 		linkedAccounts.add(account);
 		accountNumbers.add(account.getAccountNumber());
+		UserServices.storeUser(this);
 	}
 
 	@Override

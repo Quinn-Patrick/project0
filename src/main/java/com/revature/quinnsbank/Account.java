@@ -8,15 +8,16 @@ public class Account implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -3010928263862704730L;
-	private Random r = new Random();
-	private final int accountNumber = Math.abs(r.nextInt());
+	private int accountNumber;
 	private double balance;
 	private boolean approved = false;
 	
+	private String checkingOrSavings = "";
+	
 	public Account() {
 		super();
-		r = new Random();
-		r = null;
+		Random r = new Random();
+		accountNumber = Math.abs(r.nextInt());
 		balance = 0;
 		approved = false;
 	}
@@ -26,6 +27,13 @@ public class Account implements Serializable{
 		this.balance = balance;
 		this.approved = false;
 	}
+	
+	public Account(String checkingOrSavings) {
+		this();
+		this.balance = 0;
+		this.approved = false;
+		this.checkingOrSavings = checkingOrSavings;
+	}
 
 	public void setBalance(double newBalance) {
 		this.balance = newBalance;
@@ -33,6 +41,10 @@ public class Account implements Serializable{
 	
 	public double getBalance() {
 		return balance;
+	}
+	
+	public void setAccountNumber(int accountNumber) {
+		this.accountNumber = accountNumber;
 	}
 	
 	public int getAccountNumber() {
@@ -54,6 +66,14 @@ public class Account implements Serializable{
 	public void approve() {
 		this.approved = true;
 		AccountServices.record(this);
+	}
+
+	public String getCheckingOrSavings() {
+		return checkingOrSavings;
+	}
+
+	public void setCheckingOrSavings(String checkingOrSavings) {
+		this.checkingOrSavings = checkingOrSavings;
 	}
 
 	@Override
