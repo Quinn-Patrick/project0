@@ -3,6 +3,7 @@ package com.revature.bankTests;
 
 import com.revature.quinnsbank.models.Account;
 import com.revature.quinnsbank.models.User;
+import com.revature.quinnsbank.services.AccountServices;
 
 import static org.junit.Assert.*;
 
@@ -89,7 +90,7 @@ public class AccountTests {
 	@Test
 	public void testMiscellaneous() {
 		Account a2 = new Account(0);
-		
+		AccountServices.record(a2);
 		//assertEquals(true, a.equals(a2));
 		a.approve();
 		assertEquals(false, a.equals(a2));
@@ -109,6 +110,13 @@ public class AccountTests {
 		System.out.println(a2.hashCode());
 		User u1 = new User();
 		assertEquals(false, a2.equals(u1));
+		
+		Account a3 = AccountServices.retrieveAccount(a2.getAccountNumber());
+		assertEquals(a2, a3);
+		
+		AccountServices.findUsers(a2.getAccountNumber());
+		
+		AccountServices.deleteAccount(a2.getAccountNumber());
 	}
 	
 	/*

@@ -88,11 +88,16 @@ public class UserTests {
 		assertEquals("Milsherd", u.getfName());
 		UserServices.setlName(u, "Facehead");
 		assertEquals("Facehead", u.getlName());
+		
+		UserServices.setUsername(u, "newUsername");
+		assertEquals("newUsername", u.getUsername());
+		UserServices.setUsername(u, "New User");
 	}
 	
 	@Test
 	public void testMiscellaneous() {
 		User u2 = new User("User 2", "password2", "Talmidge", "McGooliger", 33);
+		UserServices.storeUser(u2);
 		assertEquals(false, u.equals(u2));
 		User u3 = new User("User 2", "password2", "Talmidge", "McGooliger", 33);
 		//assertEquals(true, u3.equals(u2));
@@ -135,6 +140,13 @@ public class UserTests {
 		assertEquals(false, u3.equals(u2));
 		
 		
+		User u4 = UserServices.retrieveUser("User 2");
+		assertEquals(u4, u2);
+		
+		UserServices.deleteUser("User 2");
+		u4 = null;
+		
+		UserServices.retrieveAllUsers();
 	}
 	
 	@Test

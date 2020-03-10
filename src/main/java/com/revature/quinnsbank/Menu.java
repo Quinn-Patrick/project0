@@ -266,7 +266,7 @@ public abstract class Menu {
 			System.out.println(optionNum + ": " + i);
 			optionNum++;
 		}
-		
+		 
 		int val = -1;
 		
 		do {

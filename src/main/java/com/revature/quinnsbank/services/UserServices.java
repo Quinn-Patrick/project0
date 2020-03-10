@@ -16,7 +16,7 @@ public class UserServices {
 		Driver.logger.info("User set username to " + username + ".");
 		user.setUsername(username);
 		data.storeUser(user);
-	}
+	} 
 	
 	public static void setPassword(User user, String password) {
 		Driver.logger.info("User " + user.getUsername() + " attempted to change password.");
@@ -55,7 +55,9 @@ public class UserServices {
 			System.out.println("You must be sixteen or older to use this bank.");
 			return;
 		}
+		Driver.logger.info("User " + user.getUsername() + " successfully changed age to " + age + ".");
 		user.setAge(age);
+		data.storeUser(user);
 	}
 	
 	
