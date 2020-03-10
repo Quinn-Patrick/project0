@@ -1,4 +1,13 @@
-package com.revature.quinnsbank;
+package com.revature.quinnsbank.services;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.revature.quinnsbank.Driver;
+import com.revature.quinnsbank.data.DataAccessible;
+import com.revature.quinnsbank.data.DatabaseAccessor;
+import com.revature.quinnsbank.models.Account;
+import com.revature.quinnsbank.models.User;
 
 public class AccountServices {
 	private static DataAccessible data = new DatabaseAccessor();
@@ -61,5 +70,13 @@ public class AccountServices {
 	public static void deleteAccount(int accountNumber) {
 		Driver.logger.info("Account number " + accountNumber + " has been deleted.");
 		data.deleteAccount(accountNumber);
+	}
+	
+	public static List<String> findUsers(int accountNumber) {
+		List<String> u = data.retrieveAllLinkedUsers(accountNumber);
+		
+		
+		
+		return u;
 	}
 }

@@ -1,6 +1,13 @@
-package com.revature.quinnsbank;
+package com.revature.quinnsbank.services;
 
 import java.util.List;
+
+import com.revature.quinnsbank.Driver;
+import com.revature.quinnsbank.data.DataAccessible;
+import com.revature.quinnsbank.data.DatabaseAccessor;
+import com.revature.quinnsbank.models.Account;
+import com.revature.quinnsbank.models.User;
+
 
 public class UserServices {
 	private static DataAccessible data = new DatabaseAccessor();
@@ -20,7 +27,7 @@ public class UserServices {
 		}
 		else{
 			Driver.logger.info("Password successfully changed to " + password + ".");
-			user.setPassword(password);;
+			user.setPassword(password);
 			data.storeUser(user);
 		}
 	}
@@ -49,8 +56,8 @@ public class UserServices {
 			return;
 		}
 		user.setAge(age);
-		data.storeUser(user);
 	}
+	
 	
 	public static void createAccount(User user, String checkingOrSavings) {
 		Account newAccount = new Account(checkingOrSavings);
@@ -80,4 +87,6 @@ public class UserServices {
 		Driver.logger.info("User " + user.getUsername() + " profile recorded.");
 		data.storeUser(user);
 	}
+	
+	
 }

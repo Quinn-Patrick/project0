@@ -1,4 +1,4 @@
-package com.revature.quinnsbank;
+package com.revature.quinnsbank.models;
 
 public class Employee extends User {
 

@@ -1,4 +1,4 @@
-package com.revature.quinnsbank;
+package com.revature.quinnsbank.services;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,6 +8,7 @@ public class ConnectionUtil {
 	private static Connection conn = null;
 	
 	public static Connection getConnection() {
+		
 		/*
 		 * We will use driver manager to actually connect to our database. 
 		 * 
@@ -26,14 +27,15 @@ public class ConnectionUtil {
 		 */
 		
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
 				/*
 				 * This statement uses reflection to check whether a class with this fully qualified
 				 * name is available.
 				 */
 			try {
-				conn = DriverManager.getConnection("jdbc:oracle:thin:@training.cjfljtfrn2lc.us-east-2.rds.amazonaws.com:1521:orcl",
-						"Quinn", "password");
+				Class.forName("oracle.jdbc.driver.OracleDriver");
+				String[] creds = System.getenv("DBCreds2").split(";");
+				conn = DriverManager.getConnection(creds[0], creds[1], creds[2]);
 			}catch(SQLException e) {
 				e.printStackTrace();
 			}

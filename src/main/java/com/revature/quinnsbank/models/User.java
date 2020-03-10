@@ -1,8 +1,11 @@
-package com.revature.quinnsbank;
+package com.revature.quinnsbank.models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+
+import com.revature.quinnsbank.services.UserServices;
 
 public class User implements Serializable{
 	/**
@@ -21,7 +24,7 @@ public class User implements Serializable{
 	
 	public User() {
 		this.username = "None";
-		this.password = "";
+		this.password = "password";
 		this.fName = "John";
 		this.lName = "Doe";
 		this.age = 16;
@@ -41,38 +44,32 @@ public class User implements Serializable{
 		return username;
 	}
 	public void setUsername(String username) {
-		UserServices.setUsername(this, username);
+		this.username = username;
+		
 	}
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
-		UserServices.setPassword(this, password);
+		this.password = password;
 	}
 	public String getfName() {
 		return fName;
 	}
 	public void setfName(String fName) {
 		this.fName = fName;
-		UserServices.storeUser(this);
 	}
 	public String getlName() {
 		return lName;
 	}
 	public void setlName(String lName) {
 		this.lName = lName;
-		UserServices.storeUser(this);
 	}
 	public int getAge() {
 		return age;
 	}
-	public void updateAge(int age) {
-		UserServices.setAge(this, age);
-	}
-	
 	public void setAge(int age) {
 		this.age = age;
-		
 	}
 	
 	public void createAccount(String checkingOrSavings) {

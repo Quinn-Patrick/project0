@@ -1,7 +1,15 @@
-package com.revature.quinnsbank;
+package com.revature.quinnsbank.data;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.revature.quinnsbank.Driver;
+import com.revature.quinnsbank.models.Account;
+import com.revature.quinnsbank.models.Admin;
+import com.revature.quinnsbank.models.Employee;
+import com.revature.quinnsbank.models.User;
+import com.revature.quinnsbank.services.ConnectionUtil;
+
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -49,13 +57,61 @@ public class DatabaseAccessor implements DataAccessible {
 			//conn.close();
 			
 			while(joinres.next()) {
-				outUser.linkAccount(retrieveAccount(joinres.getInt("accountNumber")));
+				outUser.linkAccount(retrieveAccount(joinres.getInt("accountNumber"), conn));
 			}
 			
 			return outUser;
 		}catch(SQLException e) {
 			Driver.logger.error("Connection to database failed when attempting to retrieve user.");
-			e.printStackTrace();
+			//e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public User retrieveUser(String username, Connection conn) {
+		try{
+			User outUser = null;
+			String sql = "SELECT * FROM users WHERE username = ?";
+			ResultSet res = cleanAndExecute(conn, sql, username);
+			
+			if(!res.next()) return null;
+			String userLevel = res.getString("userType");
+			String newfName = res.getString("firstName");
+			String newlName = res.getString("lastName");
+			int newAge = res.getInt("age");
+			String newPassword = res.getString("password");
+			
+			switch(userLevel.toLowerCase()) {
+			case("customer"):
+				outUser = new User(username, newPassword, newfName, newlName, newAge);
+				break;
+			case("employee"):
+				outUser = new Employee(username, newPassword, newfName, newlName, newAge);
+				break;
+			case("admin"):
+				outUser = new Admin(username, newPassword, newfName, newlName, newAge);
+				break;
+			default:
+				outUser = new User(username, newPassword, newfName, newlName, newAge);
+				break;
+			}
+			
+			String join = "SELECT accountNumber FROM joinTable WHERE username = ?";
+			
+			ResultSet joinres = cleanAndExecute(conn, join, username);
+			
+			
+			
+			//conn.close();
+			
+			while(joinres.next()) {
+				outUser.linkAccount(retrieveAccount(joinres.getInt("accountNumber"), conn));
+			}
+			
+			return outUser;
+		}catch(SQLException e) {
+			Driver.logger.error("Connection to database failed when attempting to retrieve user.");
+			//e.printStackTrace();
 		}
 		return null;
 	}
@@ -77,7 +133,28 @@ public class DatabaseAccessor implements DataAccessible {
 			
 		}catch(SQLException e) {
 			Driver.logger.error("Connection to database failed when attempting to retrieve account.");
-			e.printStackTrace();
+			//e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public Account retrieveAccount(int accountNumber, Connection conn) {
+		try{
+			String sql = "SELECT * FROM accounts WHERE accountNumber = ?";
+			ResultSet res = cleanAndExecute(conn, sql, new Integer(accountNumber).toString());
+			
+			if(!res.next()) return null;
+			//System.out.println(accountNumber);
+			
+			Account outAccount = new Account(res.getString("checkingOrSavings"));
+			outAccount.setAccountNumber(res.getInt("AccountNumber"));
+			outAccount.setBalance(res.getDouble("balance"));
+			if(res.getInt("approved") == 1) outAccount.approve();
+			return outAccount;
+			
+		}catch(SQLException e) {
+			Driver.logger.error("Connection to database failed when attempting to retrieve account.");
+			//e.printStackTrace();
 		}
 		return null;
 	}
@@ -92,7 +169,7 @@ public class DatabaseAccessor implements DataAccessible {
 			ResultSet res = cleanAndExecute(conn, sql);
 			
 			while(res.next()) {
-				allUsers.add(retrieveUser(res.getString("username")));
+				allUsers.add(retrieveUser(res.getString("username"), conn));
 			}
 			
 			return allUsers;
@@ -107,7 +184,7 @@ public class DatabaseAccessor implements DataAccessible {
 		try(Connection conn = ConnectionUtil.getConnection()){
 			List<Account> allAccounts = new ArrayList<>();
 			
-			String sql = "SELECT accountNumber FROM accounts";
+			String sql = "SELECT * FROM accounts";
 			
 			ResultSet res = cleanAndExecute(conn, sql);
 			
@@ -202,7 +279,10 @@ public class DatabaseAccessor implements DataAccessible {
 	public void deleteUser(String username) {
 		try(Connection conn = ConnectionUtil.getConnection()){
 			
-			String sql = "DELETE FROM users WHERE username = ?";
+			String sql = "DELETE FROM jointable WHERE username = ?";
+			cleanAndExecute(conn, sql, username);
+			
+			sql = "DELETE FROM users WHERE username = ?";
 			cleanAndExecute(conn, sql, username);
 			
 			
@@ -294,10 +374,26 @@ public class DatabaseAccessor implements DataAccessible {
 			//System.out.println("Made it here.");
 			return res;
 		}catch(SQLException e) {
-			//if(!sql[0].toLowerCase().contains("connection"))
+			if(!sql[0].toLowerCase().contains("connection"))
 				Driver.logger.error("Connection to database failed.");
-				e.printStackTrace();
+				//e.printStackTrace();
 			return null;
 		}
+	}
+
+	@Override
+	public List<String> retrieveAllLinkedUsers(int accountNumber) {
+		try(Connection conn = ConnectionUtil.getConnection()){
+			List<String> linkedUsers = new ArrayList<>();
+			String sql = "SELECT username FROM jointable WHERE accountNumber = ?";
+			ResultSet res = cleanAndExecute(conn, sql, new Integer(accountNumber).toString());
+			while(res.next()) {
+				linkedUsers.add(res.getString("username"));
+			}
+			return linkedUsers;
+		}catch(SQLException e) {
+			Driver.logger.error("Connection to database failed.");
+		}
+		return null;
 	}
 }

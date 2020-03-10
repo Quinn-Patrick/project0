@@ -1,4 +1,4 @@
-package com.revature.quinnsbank;
+package com.revature.quinnsbank.data;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import com.revature.quinnsbank.models.Account;
+import com.revature.quinnsbank.models.User;
 
 
 
@@ -167,6 +170,18 @@ public class FileAccessor implements DataAccessible{
 		//else System.out.println("Account number " + accountNumber + " not found.");
 		recordAccounts();
 		
+	}
+	
+	@Override
+	public List<String> retrieveAllLinkedUsers(int accountNumber){
+		List<User> allUsers = retrieveAllUsers();
+		List<String> linkedUsers = new ArrayList<>();
+		for(User u : allUsers) {
+			if(u.getAccountNumbers().contains(accountNumber)) {
+				linkedUsers.add(u.getUsername());
+			}
+		}
+		return linkedUsers;
 	}
 
 }

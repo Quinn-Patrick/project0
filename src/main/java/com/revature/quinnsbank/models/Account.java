@@ -1,7 +1,9 @@
-package com.revature.quinnsbank;
+package com.revature.quinnsbank.models;
 
 import java.io.Serializable;
 import java.util.Random;
+
+import com.revature.quinnsbank.services.AccountServices;
 
 public class Account implements Serializable{
 	/**

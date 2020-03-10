@@ -5,6 +5,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import com.revature.quinnsbank.data.DataAccessible;
+import com.revature.quinnsbank.data.FileAccessor;
+import com.revature.quinnsbank.models.Account;
+import com.revature.quinnsbank.models.Admin;
+import com.revature.quinnsbank.models.Employee;
+import com.revature.quinnsbank.models.User;
+import com.revature.quinnsbank.services.AccountServices;
+import com.revature.quinnsbank.services.UserServices;
+
 public abstract class Menu {
 	private static Scanner scan = new Scanner(System.in);
 	private static User currentUser = null;
@@ -89,15 +98,16 @@ public abstract class Menu {
 	
 	public static String chooseAccountAction(User user, Account account) {
 		List<String> options = new ArrayList<>();
-		if(account.isApproved()) {
+		boolean isAccountOwner = AccountServices.findUsers(account.getAccountNumber()).contains(currentUser.getUsername());
+		if(account.isApproved() && (currentUser instanceof Admin || isAccountOwner)) {
 			options.add("Withdraw");
 			options.add("Deposit");
 			options.add("Transfer Funds");
 		}
-		if(user instanceof Employee) {
+		if(currentUser instanceof Employee) {
 			options.add("Approve");
 		}
-		options.add("Delete");
+		if(currentUser instanceof Admin || isAccountOwner) options.add("Delete");
 		options.add("Back");
 		
 		String choice = numberedMenu(options, "What would you like to do with this account?");
@@ -135,24 +145,22 @@ public abstract class Menu {
 	
 	public static void loginScreen() {
 		do {
-			if(UserServices.retrieveAllUsers().isEmpty()) {
-				createNewUser();
-			}else {
-				System.out.println("Welcome to Quinn's Bank! Please enter your username,"
-						+ " or enter \"New\" to sign up.");
-				String loginUsername = "";
-				do {
-					loginUsername = scan.nextLine();
-					if(loginUsername.equalsIgnoreCase("New")) {
-						createNewUser();
-						break;
-					}
-					else if(loginUsername.equalsIgnoreCase("Quit")) {
-						System.exit(0);
-					}
-					currentUser = UserServices.retrieveUser(loginUsername);
-				}while(currentUser == null);
-			}
+			
+			System.out.println("Welcome to Quinn's Bank! Please enter your username,"
+					+ " or enter \"New\" to sign up.");
+			String loginUsername = "";
+			do {
+				loginUsername = scan.nextLine();
+				if(loginUsername.equalsIgnoreCase("New")) {
+					createNewUser();
+					break;
+				}
+				else if(loginUsername.equalsIgnoreCase("Quit")) {
+					System.exit(0);
+				}
+				currentUser = UserServices.retrieveUser(loginUsername);
+			}while(currentUser == null);
+			
 			if(currentUser != null) {
 				System.out.println("Please enter your password.");
 				String pass;
@@ -310,8 +318,9 @@ public abstract class Menu {
 		do {
 			Account checkedAccount = chooseAccount(user);
 			if(checkedAccount == null) break;
+			
 			System.out.println("Account Number: " + checkedAccount.getAccountNumber());
-			System.out.println("Balance: " + checkedAccount.getBalance());
+			System.out.println("Balance: $" + checkedAccount.getBalance());
 			switch(chooseAccountAction(user, checkedAccount)) {
 			case("Withdraw"):
 				withdraw(checkedAccount);
@@ -341,7 +350,8 @@ public abstract class Menu {
 			User checkedUser = chooseUser(currentUser);
 			if(checkedUser == null) break;
 			System.out.println("Username: " + checkedUser.getUsername());
-			System.out.println("Name: " + checkedUser.getfName() + checkedUser.getlName());
+			System.out.println("Name: " + checkedUser.getfName() + " " + checkedUser.getlName());
+			System.out.println("Age: " + checkedUser.getAge());
 			switch(chooseUserAction(checkedUser)) {
 				case("Update personal information."):
 					updateUserInfo(checkedUser);
@@ -351,12 +361,13 @@ public abstract class Menu {
 					break;
 				case("Delete"):
 					if(currentUser.equals(checkedUser)) {
-						System.out.println("This action will PERMANENTLY delete your user profile. Proceed (y/n)?");
+						System.out.println("This action will PERMANENTLY delete your user profile and close the application. Proceed (y/n)?");
 						if(!scan.nextLine().equals("y")) {
 							break;
 						}
 					}
 					UserServices.deleteUser(checkedUser.getUsername());
+					if(currentUser.equals(checkedUser)) System.exit(0);
 					break;
 				case("View and modify accounts."):
 					viewAccounts(checkedUser);
@@ -372,10 +383,10 @@ public abstract class Menu {
 	
 	public static void updateUserInfo(User user) {
 		System.out.println("Enter your new first name:");
-		user.setfName(scan.nextLine());
+		UserServices.setfName(user, scan.nextLine());
 		
 		System.out.println("Enter your new last name.");
-		user.setlName(scan.nextLine());
+		UserServices.setlName(user, scan.nextLine());
 		
 		System.out.println("Enter your new age.");
 		int newAge = -1;
@@ -399,12 +410,12 @@ public abstract class Menu {
 			}
 		}while(newAge < 16);
 		
-		user.updateAge(newAge);
+		UserServices.setAge(user, newAge);
 	}
 	
 	public static void updatePassword(User user) {
 		System.out.println("Please enter your new password.");
-		user.setPassword(scan.nextLine());
+		UserServices.setPassword(user, scan.nextLine());
 	}
 	
 	public static void transferFunds(Account account1, User user) {
@@ -463,10 +474,10 @@ public abstract class Menu {
 		String checkingOrSavings = numberedMenu(options, "Would you like to open a checking or savings account?");
 		switch(checkingOrSavings) {
 		case("Checking"):
-			currentUser.createAccount("Checking");
+			UserServices.createAccount(currentUser, "Checking");
 		break;
 		case("Savings"):
-			currentUser.createAccount("Savings");
+			UserServices.createAccount(currentUser, "Savings");
 		break;
 		default:
 			return;
