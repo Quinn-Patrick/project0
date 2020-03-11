@@ -90,5 +90,9 @@ public class UserServices {
 		data.storeUser(user);
 	}
 	
+	public static List<String> retrieveAllUsernames(){
+		return data.retrieveAllUsernames();
+	}
+	
 	
 }

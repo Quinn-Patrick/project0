@@ -219,7 +219,7 @@ public class DatabaseAccessor implements DataAccessible {
 						user.getfName(), user.getlName(), new Integer(user.getAge()).toString());
 			}
 			else {
-				String sql = "CALL update_users(?, ?, ?, ?, ?, ?)";
+				String sql = "CALL update_users(?, ?, ?, ?, ?, ?)"; 
 				cleanAndExecute(conn, sql,
 						userType, user.getUsername(), user.getPassword(),
 						user.getfName(), user.getlName(), new Integer(user.getAge()).toString());
@@ -391,6 +391,22 @@ public class DatabaseAccessor implements DataAccessible {
 				linkedUsers.add(res.getString("username"));
 			}
 			return linkedUsers;
+		}catch(SQLException e) {
+			Driver.logger.error("Connection to database failed.");
+		}
+		return null;
+	}
+
+	@Override
+	public List<String> retrieveAllUsernames() {
+		try(Connection conn = ConnectionUtil.getConnection()){
+			List<String> usernames = new ArrayList<>();
+			String sql = "SELECT username FROM users";
+			ResultSet res = cleanAndExecute(conn, sql);
+			while(res.next()) {
+				usernames.add(res.getString("username"));
+			}
+			return usernames;
 		}catch(SQLException e) {
 			Driver.logger.error("Connection to database failed.");
 		}

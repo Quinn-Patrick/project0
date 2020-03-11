@@ -23,5 +23,7 @@ public interface DataAccessible {
 	public void deleteAccount(int accountNumber);
 	
 	public List<String> retrieveAllLinkedUsers(int accountNumber);
+	
+	public List<String> retrieveAllUsernames();
 
 }
