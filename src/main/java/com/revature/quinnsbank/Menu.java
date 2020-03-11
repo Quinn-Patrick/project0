@@ -20,7 +20,7 @@ public abstract class Menu {
 	private static Account currentAccount = null;
 	public DataAccessible data = FileAccessor.getFileAccessor();
 	private static List<String> reserved = Arrays.asList("New", "new", "-1", "Quit", "quit");
-	
+	 
 	public static User chooseUser(User user) {
 		if(user instanceof Employee || user instanceof Admin) {
 			return typeUser();
@@ -252,13 +252,13 @@ public abstract class Menu {
 			System.out.println("The string you have entered cannot be used as a username.");
 			return false;
 		}
-		List<User> users = UserServices.retrieveAllUsers();
-		for(User u : users) {
-			if(u.getUsername().equals(username)) {
-				System.out.println("The username you entered is already in use.");
-				return false;
-			}
+		List<String> users = UserServices.retrieveAllUsernames();
+		if(users.contains(username)) {
+			System.out.println("The username you entered is already in use.");
+			return false;
 		}
+		
+		
 		
 		return true;
 	}

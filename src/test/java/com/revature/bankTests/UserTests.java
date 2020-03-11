@@ -6,6 +6,8 @@ import com.revature.quinnsbank.services.UserServices;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -147,6 +149,13 @@ public class UserTests {
 		u4 = null;
 		
 		UserServices.retrieveAllUsers();
+		
+		
+		
+		List<String> usernames = UserServices.retrieveAllUsernames();
+		assertEquals(true, usernames.contains("New User"));
+		
+		
 	}
 	
 	@Test

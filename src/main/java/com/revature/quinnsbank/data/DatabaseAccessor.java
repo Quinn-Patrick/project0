@@ -396,4 +396,20 @@ public class DatabaseAccessor implements DataAccessible {
 		}
 		return null;
 	}
+
+	@Override
+	public List<String> retrieveAllUsernames() {
+		try(Connection conn = ConnectionUtil.getConnection()){
+			List<String> usernames = new ArrayList<>();
+			String sql = "SELECT username FROM users";
+			ResultSet res = cleanAndExecute(conn, sql);
+			while(res.next()) {
+				usernames.add(res.getString("username"));
+			}
+			return usernames;
+		}catch(SQLException e) {
+			Driver.logger.error("Connection to database failed.");
+		}
+		return null;
+	}
 }

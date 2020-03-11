@@ -184,4 +184,14 @@ public class FileAccessor implements DataAccessible{
 		return linkedUsers;
 	}
 
+	@Override
+	public List<String> retrieveAllUsernames() {
+		List<String> usernames = new ArrayList<>();
+		List<User> allUsers = retrieveAllUsers();
+		for(User u : allUsers) {
+			usernames.add(u.getUsername());
+		}
+		return usernames;
+	}
+
 }
