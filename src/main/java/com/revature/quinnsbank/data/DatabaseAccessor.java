@@ -219,7 +219,7 @@ public class DatabaseAccessor implements DataAccessible {
 						user.getfName(), user.getlName(), new Integer(user.getAge()).toString());
 			}
 			else {
-				String sql = "CALL update_users(?, ?, ?, ?, ?, ?)";
+				String sql = "CALL update_users(?, ?, ?, ?, ?, ?)"; 
 				cleanAndExecute(conn, sql,
 						userType, user.getUsername(), user.getPassword(),
 						user.getfName(), user.getlName(), new Integer(user.getAge()).toString());

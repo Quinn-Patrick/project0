@@ -197,28 +197,30 @@ public abstract class Menu {
 		do {
 			System.out.println("Please enter your username.");
 			newUsername = scan.nextLine();
+			if(newUsername.equals("-1")) return;
 		}while(!originalUsername(newUsername));
 		
 		System.out.println("Please enter your password.");
 		newPassword = scan.nextLine();
-		
+		if(newPassword.equals("-1")) return;
 		System.out.println("Please enter your first name.");
 		newfName = scan.nextLine();
-		
+		if(newfName.equals("-1")) return;
 		System.out.println("Please enter your last name.");
 		newlName = scan.nextLine();
-		
+		if(newlName.equals("-1")) return;
 		System.out.println("Please enter your age.");
 		do {
-			int val = -1;
+			int val = -2;
 			
 			do {
 				try {
 					val = Integer.parseInt(scan.nextLine());
+					if(val == -1) return;
 				}catch(NumberFormatException e){
-					val = -1;
+					val = -2;
 				}
-			}while(val == -1);
+			}while(val == -2);
 			
 			newAge = val;
 			if(newAge < 0) {
@@ -246,6 +248,10 @@ public abstract class Menu {
 	}
 	
 	public static boolean originalUsername(String username) {
+		if(reserved.contains(username)) {
+			System.out.println("The string you have entered cannot be used as a username.");
+			return false;
+		}
 		List<User> users = UserServices.retrieveAllUsers();
 		for(User u : users) {
 			if(u.getUsername().equals(username)) {
@@ -253,9 +259,7 @@ public abstract class Menu {
 				return false;
 			}
 		}
-		if(reserved.contains(username)) {
-			System.out.println("The string you have entered cannot be used as a username.");
-		}
+		
 		return true;
 	}
 	
@@ -275,7 +279,7 @@ public abstract class Menu {
 			}catch(NumberFormatException e){
 				val = -1;
 			}
-		}while(val == -1 || val >= options.size());
+		}while(val <= -1 || val >= options.size());
 		
 		return options.get(val);
 	}
@@ -441,8 +445,10 @@ public abstract class Menu {
 	public static void linkAccount(User user) {
 		System.out.println("Link an account belonging to which user?");
 		User targetUser = typeUser();
+		if(targetUser == null) return;
 		System.out.println("Which of their accounts would you like to link to?");
 		Account targetAccount = chooseAccount(targetUser);
+		if(targetAccount == null) return;
 		System.out.println(targetUser.getUsername() + ", please enter your password.");
 		String pass = null;
 		boolean success = false;
@@ -460,7 +466,6 @@ public abstract class Menu {
 				user.linkAccount(targetAccount);
 			}
 			if(pass.equals("-1")) {
-				currentUser = null;
 				return;
 			}
 		}while(!success);

@@ -44503,3 +44503,352 @@
 2020-03-10 16:57:36 INFO  Driver:89 - User Quinn profile recorded.
 2020-03-10 16:57:38 INFO  Driver:62 - Account number 1810501620 data updated.
 2020-03-10 16:57:39 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 18:53:32 INFO  Driver:11 - Application start.
+2020-03-10 18:58:15 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 18:58:20 INFO  Driver:177 - User Quinn successful login attempt.
+2020-03-10 18:58:31 INFO  Driver:66 - User Quinn opened a new account with number 337548172
+2020-03-10 18:58:31 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 18:59:01 INFO  Driver:172 - Unsuccessful login attempt for username employee_1.
+2020-03-10 18:59:08 INFO  Driver:177 - User employee_1 successful login attempt.
+2020-03-10 18:59:27 INFO  Driver:62 - Account number 337548172 data updated.
+2020-03-10 18:59:31 INFO  Driver:62 - Account number 337548172 data updated.
+2020-03-10 18:59:32 INFO  Driver:62 - Account number 337548172 data updated.
+2020-03-10 18:59:43 INFO  Driver:62 - Account number 337548172 data updated.
+2020-03-10 18:59:44 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 18:59:45 INFO  Driver:62 - Account number 337548172 data updated.
+2020-03-10 18:59:46 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 19:00:00 INFO  Driver:62 - Account number 337548172 data updated.
+2020-03-10 19:00:01 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 19:00:04 INFO  Driver:177 - User Quinn successful login attempt.
+2020-03-10 19:00:07 INFO  Driver:62 - Account number 337548172 data updated.
+2020-03-10 19:00:09 INFO  Driver:62 - Account number 337548172 data updated.
+2020-03-10 19:00:19 INFO  Driver:16 - Attempted to deposit $100.0 into account 337548172
+2020-03-10 19:00:19 INFO  Driver:20 - Deposit successful.
+2020-03-10 19:00:20 INFO  Driver:62 - Account number 337548172 data updated.
+2020-03-10 19:00:23 INFO  Driver:62 - Account number 337548172 data updated.
+2020-03-10 19:00:36 INFO  Driver:37 - Attempted to withdraw $200.0 from account 337548172.
+2020-03-10 19:00:36 INFO  Driver:49 - Withdrawal failed. Reason: account overdraw.
+2020-03-10 19:00:37 INFO  Driver:62 - Account number 337548172 data updated.
+2020-03-10 19:00:39 INFO  Driver:62 - Account number 337548172 data updated.
+2020-03-10 19:00:44 INFO  Driver:37 - Attempted to withdraw $5.0 from account 337548172.
+2020-03-10 19:00:44 INFO  Driver:41 - Withdrawal successful.
+2020-03-10 19:00:45 INFO  Driver:62 - Account number 337548172 data updated.
+2020-03-10 19:02:47 INFO  Driver:11 - Application start.
+2020-03-10 19:03:02 INFO  Driver:62 - Account number 337548172 data updated.
+2020-03-10 19:03:03 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 19:03:06 INFO  Driver:177 - User Quinn successful login attempt.
+2020-03-10 19:03:18 INFO  Driver:84 - User Quinn user profile deleted.
+2020-03-10 19:03:32 INFO  Driver:11 - Application start.
+2020-03-10 19:03:39 INFO  Driver:177 - User bank_admin_1 successful login attempt.
+2020-03-10 19:05:17 INFO  Driver:11 - Application start.
+2020-03-10 19:05:27 INFO  Driver:177 - User bank_admin_1 successful login attempt.
+2020-03-10 19:08:43 INFO  Driver:11 - Application start.
+2020-03-10 19:08:57 INFO  Driver:177 - User bank_admin_1 successful login attempt.
+2020-03-10 19:09:50 INFO  Driver:459 - User bank_admin_1 successful password attempt.
+2020-03-10 19:10:34 INFO  Driver:11 - Application start.
+2020-03-10 19:10:59 INFO  Driver:177 - User bank_admin_1 successful login attempt.
+2020-03-10 19:12:21 INFO  Driver:11 - Application start.
+2020-03-10 19:12:47 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 19:12:51 INFO  Driver:177 - User Quinn successful login attempt.
+2020-03-10 19:12:57 INFO  Driver:66 - User Quinn opened a new account with number 207959969
+2020-03-10 19:12:57 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 19:13:22 INFO  Driver:36 - User Quinn changed first name to Quinn.
+2020-03-10 19:13:25 INFO  Driver:42 - User Quinn changed last name to Bierbaum.
+2020-03-10 19:13:26 INFO  Driver:48 - User Quinn attempted to change age to 23.
+2020-03-10 19:13:26 INFO  Driver:58 - User Quinn successfully changed age to 23.
+2020-03-10 19:13:36 INFO  Driver:22 - User Quinn attempted to change password.
+2020-03-10 19:13:36 INFO  Driver:29 - Password successfully changed to password1.
+2020-03-10 19:13:47 INFO  Driver:177 - User employee_1 successful login attempt.
+2020-03-10 19:14:01 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:14:11 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:14:12 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 19:14:13 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:14:14 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 19:14:31 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:14:32 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 19:14:35 INFO  Driver:177 - User Quinn successful login attempt.
+2020-03-10 19:14:39 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:14:41 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:14:53 INFO  Driver:16 - Attempted to deposit $100.0 into account 207959969
+2020-03-10 19:14:53 INFO  Driver:20 - Deposit successful.
+2020-03-10 19:14:54 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:14:57 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:15:07 INFO  Driver:37 - Attempted to withdraw $200.0 from account 207959969.
+2020-03-10 19:15:07 INFO  Driver:49 - Withdrawal failed. Reason: account overdraw.
+2020-03-10 19:15:08 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:15:12 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:15:21 INFO  Driver:37 - Attempted to withdraw $50.55 from account 207959969.
+2020-03-10 19:15:21 INFO  Driver:41 - Withdrawal successful.
+2020-03-10 19:15:22 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:15:25 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:15:32 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:15:42 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:15:43 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 19:15:56 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 19:16:02 INFO  Driver:177 - User Quinn2 successful login attempt.
+2020-03-10 19:16:06 INFO  Driver:66 - User Quinn2 opened a new account with number 419527583
+2020-03-10 19:16:06 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 19:16:10 INFO  Driver:66 - User Quinn2 opened a new account with number 433610491
+2020-03-10 19:16:10 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 19:16:23 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:16:24 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 19:16:25 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:16:26 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 19:16:27 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:16:30 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:16:35 INFO  Driver:460 - User Quinn2 successful password attempt.
+2020-03-10 19:16:35 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 19:16:41 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:16:45 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:16:50 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:16:56 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:17:07 INFO  Driver:177 - User bank_admin_1 successful login attempt.
+2020-03-10 19:17:19 INFO  Driver:62 - Account number 419527583 data updated.
+2020-03-10 19:17:22 INFO  Driver:62 - Account number 419527583 data updated.
+2020-03-10 19:17:23 INFO  Driver:62 - Account number 419527583 data updated.
+2020-03-10 19:17:31 INFO  Driver:16 - Attempted to deposit $500.0 into account 419527583
+2020-03-10 19:17:31 INFO  Driver:20 - Deposit successful.
+2020-03-10 19:17:44 INFO  Driver:71 - Account number 433610491 has been deleted.
+2020-03-10 19:17:58 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:17:59 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 19:18:00 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:18:01 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 19:18:24 INFO  Driver:36 - User Quinn changed first name to Quinndo.
+2020-03-10 19:18:30 INFO  Driver:42 - User Quinn changed last name to Bierbaumo.
+2020-03-10 19:18:33 INFO  Driver:48 - User Quinn attempted to change age to 24.
+2020-03-10 19:18:33 INFO  Driver:58 - User Quinn successfully changed age to 24.
+2020-03-10 19:18:39 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:18:40 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 19:18:41 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:18:42 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 19:18:53 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:18:54 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 19:18:58 INFO  Driver:177 - User Quinn successful login attempt.
+2020-03-10 19:19:03 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:19:06 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:19:14 INFO  Driver:62 - Account number 419527583 data updated.
+2020-03-10 19:19:15 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 19:19:16 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:19:17 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 19:19:18 INFO  Driver:62 - Account number 419527583 data updated.
+2020-03-10 19:19:19 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 19:19:20 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:19:21 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 19:19:22 INFO  Driver:62 - Account number 419527583 data updated.
+2020-03-10 19:19:23 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:19:29 INFO  Driver:62 - Account number 419527583 data updated.
+2020-03-10 19:19:34 INFO  Driver:37 - Attempted to withdraw $10.0 from account 207959969.
+2020-03-10 19:19:34 INFO  Driver:41 - Withdrawal successful.
+2020-03-10 19:19:35 INFO  Driver:16 - Attempted to deposit $10.0 into account 419527583
+2020-03-10 19:19:35 INFO  Driver:20 - Deposit successful.
+2020-03-10 19:19:36 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:19:41 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:19:45 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:19:59 INFO  Driver:84 - User Quinn user profile deleted.
+2020-03-10 19:21:51 INFO  Driver:89 - User User 2 profile recorded.
+2020-03-10 19:21:59 INFO  Driver:84 - User User 2 user profile deleted.
+2020-03-10 19:22:00 INFO  Driver:62 - Account number 419527583 data updated.
+2020-03-10 19:22:01 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 19:22:02 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 19:22:03 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 19:22:04 INFO  Driver:66 - User None opened a new account with number 1222048495
+2020-03-10 19:22:04 INFO  Driver:89 - User None profile recorded.
+2020-03-10 19:22:07 INFO  Driver:48 - User None attempted to change age to 18.
+2020-03-10 19:22:07 INFO  Driver:58 - User None successfully changed age to 18.
+2020-03-10 19:22:08 INFO  Driver:48 - User None attempted to change age to -5.
+2020-03-10 19:22:08 INFO  Driver:50 - Age change failed. Reason: negative input.
+2020-03-10 19:22:08 INFO  Driver:48 - User None attempted to change age to 15.
+2020-03-10 19:22:08 INFO  Driver:54 - Age change failed. Reason: too young.
+2020-03-10 19:22:08 INFO  Driver:36 - User None changed first name to Milsherd.
+2020-03-10 19:22:08 INFO  Driver:42 - User None changed last name to Facehead.
+2020-03-10 19:22:09 INFO  Driver:16 - User set username to newUsername.
+2020-03-10 19:22:10 INFO  Driver:16 - User set username to New User.
+2020-03-10 19:22:11 INFO  Driver:22 - User None attempted to change password.
+2020-03-10 19:22:11 INFO  Driver:24 - Password change failed. Reason: must pick new password.
+2020-03-10 19:22:11 INFO  Driver:25 - User None attempted to change password.
+2020-03-10 19:22:11 INFO  Driver:22 - User None attempted to change password.
+2020-03-10 19:22:11 INFO  Driver:24 - Password change failed. Reason: must pick new password.
+2020-03-10 19:22:11 INFO  Driver:25 - User None attempted to change password.
+2020-03-10 19:22:11 INFO  Driver:22 - User None attempted to change password.
+2020-03-10 19:22:11 INFO  Driver:29 - Password successfully changed to passworb.
+2020-03-10 19:22:36 INFO  Driver:62 - Account number 149180566 data updated.
+2020-03-10 19:22:43 INFO  Driver:62 - Account number 497589293 data updated.
+2020-03-10 19:22:44 INFO  Driver:16 - Attempted to deposit $200.0 into account 497589293
+2020-03-10 19:22:44 INFO  Driver:20 - Deposit successful.
+2020-03-10 19:22:45 INFO  Driver:37 - Attempted to withdraw $100.0 from account 497589293.
+2020-03-10 19:22:45 INFO  Driver:41 - Withdrawal successful.
+2020-03-10 19:22:46 INFO  Driver:62 - Account number 149180566 data updated.
+2020-03-10 19:22:46 INFO  Driver:16 - Attempted to deposit $100.0 into account 149180566
+2020-03-10 19:22:46 INFO  Driver:20 - Deposit successful.
+2020-03-10 19:22:47 INFO  Driver:37 - Attempted to withdraw $50.0 from account 149180566.
+2020-03-10 19:22:47 INFO  Driver:41 - Withdrawal successful.
+2020-03-10 19:22:48 INFO  Driver:62 - Account number 149180566 data updated.
+2020-03-10 19:22:50 INFO  Driver:71 - Account number 149180566 has been deleted.
+2020-03-10 19:22:50 INFO  Driver:37 - Attempted to withdraw $3.0 from account 1794440931.
+2020-03-10 19:22:50 INFO  Driver:54 - Withdrawal failed. Reason: account not approved.
+2020-03-10 19:22:51 INFO  Driver:62 - Account number 1794440931 data updated.
+2020-03-10 19:22:52 INFO  Driver:16 - Attempted to deposit $5.0 into account 1794440931
+2020-03-10 19:22:52 INFO  Driver:20 - Deposit successful.
+2020-03-10 19:22:53 INFO  Driver:37 - Attempted to withdraw $3.0 from account 1794440931.
+2020-03-10 19:22:53 INFO  Driver:41 - Withdrawal successful.
+2020-03-10 19:22:54 INFO  Driver:37 - Attempted to withdraw $-3.0 from account 1794440931.
+2020-03-10 19:22:54 INFO  Driver:45 - Withdrawal failed. Reason: negative dollar amount.
+2020-03-10 19:22:54 INFO  Driver:37 - Attempted to withdraw $100.0 from account 1794440931.
+2020-03-10 19:22:54 INFO  Driver:49 - Withdrawal failed. Reason: account overdraw.
+2020-03-10 19:22:55 INFO  Driver:16 - Attempted to deposit $5.0 into account 1075614905
+2020-03-10 19:22:55 INFO  Driver:29 - Deposit failed. Reason: account not approved.
+2020-03-10 19:22:56 INFO  Driver:62 - Account number 1075614905 data updated.
+2020-03-10 19:22:57 INFO  Driver:16 - Attempted to deposit $5.0 into account 1075614905
+2020-03-10 19:22:57 INFO  Driver:20 - Deposit successful.
+2020-03-10 19:22:58 INFO  Driver:16 - Attempted to deposit $-5.0 into account 1075614905
+2020-03-10 19:22:58 INFO  Driver:24 - Deposit failed. Reason: negative dollar amount.
+2020-03-10 19:22:59 INFO  Driver:62 - Account number 835586392 data updated.
+2020-03-10 20:58:20 INFO  Driver:11 - Application start.
+2020-03-10 20:58:31 INFO  Driver:89 - User None profile recorded.
+2020-03-10 20:58:32 INFO  Driver:62 - Account number 419527583 data updated.
+2020-03-10 20:58:33 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 20:58:34 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 20:58:34 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 20:58:46 INFO  Driver:89 - User None profile recorded.
+2020-03-10 20:58:47 INFO  Driver:62 - Account number 419527583 data updated.
+2020-03-10 20:58:48 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 20:58:49 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 20:58:50 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 21:01:56 INFO  Driver:11 - Application start.
+2020-03-10 21:02:17 INFO  Driver:11 - Application start.
+2020-03-10 21:03:15 INFO  Driver:11 - Application start.
+2020-03-10 21:03:31 INFO  Driver:11 - Application start.
+2020-03-10 21:03:40 INFO  Driver:89 - User None profile recorded.
+2020-03-10 21:03:41 INFO  Driver:62 - Account number 419527583 data updated.
+2020-03-10 21:03:42 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 21:03:43 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 21:03:44 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 21:30:05 INFO  Driver:11 - Application start.
+2020-03-10 21:30:41 INFO  Driver:89 - User None profile recorded.
+2020-03-10 21:30:42 INFO  Driver:62 - Account number 419527583 data updated.
+2020-03-10 21:30:42 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 21:30:43 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 21:30:44 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 21:30:52 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 21:30:55 INFO  Driver:177 - User Quinn successful login attempt.
+2020-03-10 21:30:58 INFO  Driver:66 - User Quinn opened a new account with number 821232728
+2020-03-10 21:30:58 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 21:31:17 INFO  Driver:36 - User Quinn changed first name to Quinn.
+2020-03-10 21:31:20 INFO  Driver:42 - User Quinn changed last name to Bierbaum.
+2020-03-10 21:31:20 INFO  Driver:48 - User Quinn attempted to change age to 23.
+2020-03-10 21:31:20 INFO  Driver:58 - User Quinn successfully changed age to 23.
+2020-03-10 21:31:28 INFO  Driver:22 - User Quinn attempted to change password.
+2020-03-10 21:31:28 INFO  Driver:29 - Password successfully changed to password1.
+2020-03-10 21:31:37 INFO  Driver:177 - User employee_1 successful login attempt.
+2020-03-10 21:31:51 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:31:58 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:31:58 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 21:31:59 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:32:00 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 21:32:07 INFO  Driver:66 - User employee_1 opened a new account with number 189591997
+2020-03-10 21:32:07 INFO  Driver:89 - User employee_1 profile recorded.
+2020-03-10 21:32:20 INFO  Driver:62 - Account number 189591997 data updated.
+2020-03-10 21:32:27 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:32:28 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 21:32:29 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:32:30 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 21:32:31 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:32:34 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:32:38 INFO  Driver:464 - User employee_1 successful password attempt.
+2020-03-10 21:32:38 INFO  Driver:89 - User employee_1 profile recorded.
+2020-03-10 21:32:46 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:32:47 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 21:32:50 INFO  Driver:177 - User Quinn successful login attempt.
+2020-03-10 21:32:52 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:32:55 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:33:01 INFO  Driver:37 - Attempted to withdraw $50.0 from account 821232728.
+2020-03-10 21:33:01 INFO  Driver:49 - Withdrawal failed. Reason: account overdraw.
+2020-03-10 21:33:03 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:33:07 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:33:16 INFO  Driver:16 - Attempted to deposit $200.0 into account 821232728
+2020-03-10 21:33:16 INFO  Driver:20 - Deposit successful.
+2020-03-10 21:33:17 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:33:19 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:33:26 INFO  Driver:37 - Attempted to withdraw $50.7 from account 821232728.
+2020-03-10 21:33:26 INFO  Driver:41 - Withdrawal successful.
+2020-03-10 21:33:27 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:33:30 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:33:36 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:33:46 INFO  Driver:177 - User bank_admin_1 successful login attempt.
+2020-03-10 21:33:57 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:33:58 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 21:33:59 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:34:00 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 21:34:09 INFO  Driver:36 - User Quinn changed first name to Quinn2.
+2020-03-10 21:34:12 INFO  Driver:42 - User Quinn changed last name to Bierbaum2.
+2020-03-10 21:34:14 INFO  Driver:48 - User Quinn attempted to change age to 55.
+2020-03-10 21:34:14 INFO  Driver:58 - User Quinn successfully changed age to 55.
+2020-03-10 21:34:21 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:34:22 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 21:34:23 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:34:24 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 21:36:00 INFO  Driver:62 - Account number 55435134 data updated.
+2020-03-10 21:36:04 INFO  Driver:62 - Account number 320149306 data updated.
+2020-03-10 21:36:05 INFO  Driver:16 - Attempted to deposit $200.0 into account 320149306
+2020-03-10 21:36:05 INFO  Driver:20 - Deposit successful.
+2020-03-10 21:36:06 INFO  Driver:37 - Attempted to withdraw $100.0 from account 320149306.
+2020-03-10 21:36:06 INFO  Driver:41 - Withdrawal successful.
+2020-03-10 21:36:06 INFO  Driver:62 - Account number 55435134 data updated.
+2020-03-10 21:36:07 INFO  Driver:16 - Attempted to deposit $100.0 into account 55435134
+2020-03-10 21:36:07 INFO  Driver:20 - Deposit successful.
+2020-03-10 21:36:08 INFO  Driver:37 - Attempted to withdraw $50.0 from account 55435134.
+2020-03-10 21:36:08 INFO  Driver:41 - Withdrawal successful.
+2020-03-10 21:36:09 INFO  Driver:62 - Account number 55435134 data updated.
+2020-03-10 21:36:10 INFO  Driver:71 - Account number 55435134 has been deleted.
+2020-03-10 21:36:11 INFO  Driver:37 - Attempted to withdraw $3.0 from account 431855180.
+2020-03-10 21:36:11 INFO  Driver:54 - Withdrawal failed. Reason: account not approved.
+2020-03-10 21:36:12 INFO  Driver:62 - Account number 431855180 data updated.
+2020-03-10 21:36:13 INFO  Driver:16 - Attempted to deposit $5.0 into account 431855180
+2020-03-10 21:36:13 INFO  Driver:20 - Deposit successful.
+2020-03-10 21:36:13 INFO  Driver:37 - Attempted to withdraw $3.0 from account 431855180.
+2020-03-10 21:36:13 INFO  Driver:41 - Withdrawal successful.
+2020-03-10 21:36:14 INFO  Driver:37 - Attempted to withdraw $-3.0 from account 431855180.
+2020-03-10 21:36:14 INFO  Driver:45 - Withdrawal failed. Reason: negative dollar amount.
+2020-03-10 21:36:15 INFO  Driver:37 - Attempted to withdraw $100.0 from account 431855180.
+2020-03-10 21:36:15 INFO  Driver:49 - Withdrawal failed. Reason: account overdraw.
+2020-03-10 21:36:16 INFO  Driver:16 - Attempted to deposit $5.0 into account 1890241969
+2020-03-10 21:36:16 INFO  Driver:29 - Deposit failed. Reason: account not approved.
+2020-03-10 21:36:17 INFO  Driver:62 - Account number 1890241969 data updated.
+2020-03-10 21:36:17 INFO  Driver:16 - Attempted to deposit $5.0 into account 1890241969
+2020-03-10 21:36:17 INFO  Driver:20 - Deposit successful.
+2020-03-10 21:36:18 INFO  Driver:16 - Attempted to deposit $-5.0 into account 1890241969
+2020-03-10 21:36:18 INFO  Driver:24 - Deposit failed. Reason: negative dollar amount.
+2020-03-10 21:36:19 INFO  Driver:62 - Account number 139252635 data updated.
+2020-03-10 21:37:11 INFO  Driver:89 - User User 2 profile recorded.
+2020-03-10 21:37:16 INFO  Driver:84 - User User 2 user profile deleted.
+2020-03-10 21:37:17 INFO  Driver:89 - User None profile recorded.
+2020-03-10 21:37:19 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:37:20 INFO  Driver:89 - User Quinn profile recorded.
+2020-03-10 21:37:20 INFO  Driver:62 - Account number 419527583 data updated.
+2020-03-10 21:37:21 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 21:37:22 INFO  Driver:62 - Account number 207959969 data updated.
+2020-03-10 21:37:23 INFO  Driver:89 - User Quinn2 profile recorded.
+2020-03-10 21:37:24 INFO  Driver:62 - Account number 189591997 data updated.
+2020-03-10 21:37:25 INFO  Driver:89 - User employee_1 profile recorded.
+2020-03-10 21:37:26 INFO  Driver:62 - Account number 821232728 data updated.
+2020-03-10 21:37:27 INFO  Driver:89 - User employee_1 profile recorded.
+2020-03-10 21:37:29 INFO  Driver:66 - User None opened a new account with number 1162979602
+2020-03-10 21:37:29 INFO  Driver:89 - User None profile recorded.
+2020-03-10 21:37:32 INFO  Driver:48 - User None attempted to change age to 18.
+2020-03-10 21:37:32 INFO  Driver:58 - User None successfully changed age to 18.
+2020-03-10 21:37:33 INFO  Driver:48 - User None attempted to change age to -5.
+2020-03-10 21:37:33 INFO  Driver:50 - Age change failed. Reason: negative input.
+2020-03-10 21:37:33 INFO  Driver:48 - User None attempted to change age to 15.
+2020-03-10 21:37:33 INFO  Driver:54 - Age change failed. Reason: too young.
+2020-03-10 21:37:33 INFO  Driver:36 - User None changed first name to Milsherd.
+2020-03-10 21:37:35 INFO  Driver:42 - User None changed last name to Facehead.
+2020-03-10 21:37:35 INFO  Driver:16 - User set username to newUsername.
+2020-03-10 21:37:37 INFO  Driver:16 - User set username to New User.
+2020-03-10 21:37:38 INFO  Driver:22 - User None attempted to change password.
+2020-03-10 21:37:38 INFO  Driver:24 - Password change failed. Reason: must pick new password.
+2020-03-10 21:37:38 INFO  Driver:25 - User None attempted to change password.
+2020-03-10 21:37:38 INFO  Driver:22 - User None attempted to change password.
+2020-03-10 21:37:38 INFO  Driver:24 - Password change failed. Reason: must pick new password.
+2020-03-10 21:37:38 INFO  Driver:25 - User None attempted to change password.
+2020-03-10 21:37:38 INFO  Driver:22 - User None attempted to change password.
+2020-03-10 21:37:38 INFO  Driver:29 - Password successfully changed to passworb.
