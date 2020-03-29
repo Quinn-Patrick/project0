@@ -42,7 +42,7 @@ public class FileAccessor implements DataAccessible{
 			userList = ((HashSet<User>) ois.readObject());
 		}catch(IOException e) {
 			System.out.println("No user data found.");
-		}catch(ClassNotFoundException e) {
+		}catch(ClassNotFoundException e) { 
 			e.printStackTrace();
 		}
 	}

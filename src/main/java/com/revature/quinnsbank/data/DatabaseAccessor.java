@@ -92,7 +92,7 @@ public class DatabaseAccessor implements DataAccessible {
 				outUser = new Admin(username, newPassword, newfName, newlName, newAge);
 				break;
 			default:
-				outUser = new User(username, newPassword, newfName, newlName, newAge);
+				outUser = new User(username, newPassword, newfName, newlName, newAge); 
 				break;
 			}
 			

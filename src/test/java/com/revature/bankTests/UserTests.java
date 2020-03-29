@@ -67,13 +67,13 @@ public class UserTests {
 	public void testpassword() {
 		UserServices.setPassword(u, "password");
 		assertEquals("password", u.getPassword());
-		assertEquals(false, u.comparePassword("passworb"));
-		assertEquals(true, u.comparePassword("password"));
+		assertFalse(u.comparePassword("passworb"));
+		assertTrue(u.comparePassword("password"));
 		UserServices.setPassword(u, "password");
 		UserServices.setPassword(u, "passworb");
 		assertEquals("passworb", u.getPassword());
-		assertEquals(true, u.comparePassword("passworb"));
-		assertEquals(false, u.comparePassword("password"));
+		assertTrue(u.comparePassword("passworb"));
+		assertFalse(u.comparePassword("password"));
 		
 	}
 	
@@ -99,7 +99,7 @@ public class UserTests {
 	@Test
 	public void testMiscellaneous() {
 		User u2 = new User("User 2", "password2", "Talmidge", "McGooliger", 33);
-		UserServices.storeUser(u2);
+		UserServices.storeUser(u2); 
 		assertEquals(false, u.equals(u2));
 		User u3 = new User("User 2", "password2", "Talmidge", "McGooliger", 33);
 		//assertEquals(true, u3.equals(u2));
@@ -107,39 +107,39 @@ public class UserTests {
 		System.out.println(u2.hashCode());
 		
 		u2 = new User("User 3", "password2", "Talmidge", "McGooliger", 33);
-		assertEquals(false, u3.equals(u2));
+		assertFalse(u3.equals(u2));
 		u2 = new User("User 2", "password3", "Talmidge", "McGooliger", 33);
-		assertEquals(false, u3.equals(u2));
+		assertFalse(u3.equals(u2));
 		u2 = new User("User 2", "password2", "Amish", "McGooliger", 33);
-		assertEquals(false, u3.equals(u2));
+		assertFalse(u3.equals(u2));
 		u2 = new User("User 2", "password2", "Talmidge", "Gadfell", 33);
-		assertEquals(false, u3.equals(u2));
+		assertFalse(u3.equals(u2));
 		u2 = new User("User 2", "password2", "Talmidge", "McGooliger", 115);
-		assertEquals(false, u3.equals(u2));
+		assertFalse(u3.equals(u2));
 		
 		assertEquals(true, u2.equals(u2));
-		assertEquals(false, u2.equals(null));
-		assertEquals(false, u2.equals(new Account()));
+		assertFalse(u2.equals(null));
+		assertFalse(u2.equals(new Account()));
 		
 		u2 = new User(null, "password2", "Talmidge", "McGooliger", 33);
-		assertEquals(false, u2.equals(u3));
+		assertFalse(u2.equals(u3));
 		u2 = new User("User 2", null, "Talmidge", "McGooliger", 33);
-		assertEquals(false, u2.equals(u3));
+		assertFalse(u2.equals(u3));
 		u2 = new User("User 2", "password2", null, "McGooliger", 33);
-		assertEquals(false, u2.equals(u3));
+		assertFalse(u2.equals(u3));
 		u2 = new User("User 2", "password2", "Talmidge", null, 33);
-		assertEquals(false, u2.equals(u3));
+		assertFalse(u2.equals(u3));
 		
 		u2.setlName("McGooliger");
 		
 		u3 = new User(null, "password2", "Talmidge", "McGooliger", 33);
-		assertEquals(false, u3.equals(u2));
+		assertFalse(u3.equals(u2));
 		u3 = new User("User 2", null, "Talmidge", "McGooliger", 33);
-		assertEquals(false, u3.equals(u2));
+		assertFalse(u3.equals(u2));
 		u3 = new User("User 2", "password2", null, "McGooliger", 33);
-		assertEquals(false, u3.equals(u2));
+		assertFalse(u3.equals(u2));
 		u3 = new User("User 2", "password2", "Talmidge", null, 33);
-		assertEquals(false, u3.equals(u2));
+		assertFalse(u3.equals(u2));
 		
 		
 		User u4 = UserServices.retrieveUser("User 2");
